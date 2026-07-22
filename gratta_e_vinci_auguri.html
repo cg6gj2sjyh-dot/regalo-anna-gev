@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gratta e Vinci</title>
+<style>
+body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#f5f5f5}
+#card{position:relative;width:340px;height:220px;border-radius:16px;background:#fff;box-shadow:0 4px 16px #0003;overflow:hidden}
+#msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:28px;font-weight:bold;color:#178a2f}
+canvas{position:absolute;inset:0}
+</style></head><body>
+<div id="card"><div id="msg">🎉 Hai accumulato <br><span style="font-size:40px">400 euro!</span><br>Tanti auguri!! 🎉</div><canvas id="c"></canvas></div>
+<script>
+const c=document.getElementById('c'),ctx=c.getContext('2d');
+function rs(){c.width=c.offsetWidth;c.height=c.offsetHeight;ctx.fillStyle="#bdbdbd";ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle="#888";ctx.font="bold 26px Arial";ctx.textAlign="center";ctx.fillText("GRATTA QUI",c.width/2,c.height/2);}
+rs();window.onresize=rs;
+ctx.globalCompositeOperation='destination-out';
+let d=false;
+function p(e){if(!d)return;const r=c.getBoundingClientRect();const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;ctx.beginPath();ctx.arc(x,y,18,0,Math.PI*2);ctx.fill();}
+c.onmousedown=()=>d=true;window.onmouseup=()=>d=false;c.onmousemove=p;
+c.ontouchstart=()=>d=true;c.ontouchend=()=>d=false;c.ontouchmove=(e)=>{e.preventDefault();p(e);}
+</script></body></html>
