@@ -6,7 +6,7 @@ body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-item
 #msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:28px;font-weight:bold;color:#178a2f}
 canvas{position:absolute;inset:0}
 </style></head><body>
-<div id="card"><div id="msg">🎉 Hai accumulato <br><span style="font-size:40px">400 euro!</span><br>Tanti auguri!! 🎉</div><canvas id="c"></canvas></div>
+<div id="card"><div id="msg">🎉 Hai accumulato <br><span style="font-size:40px">400€!</span><br>Complimenti! 🎉</div><canvas id="c"></canvas></div>
 <script>
 const c=document.getElementById('c'),ctx=c.getContext('2d');
 function rs(){c.width=c.offsetWidth;c.height=c.offsetHeight;ctx.fillStyle="#bdbdbd";ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle="#888";ctx.font="bold 26px Arial";ctx.textAlign="center";ctx.fillText("GRATTA QUI",c.width/2,c.height/2);}
